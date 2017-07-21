@@ -20,14 +20,16 @@ public class UserDaoImpl implements IUserDao{
     @Override
     public User getByLogin(String username, String password) {
         User user = null;
-        Connection conn = DBUtil.getConnection();
+
         String sql = "select * from user where username = ? and password =?";
-        try {
-            PreparedStatement pstt = conn.prepareStatement(sql);
+        try ( Connection conn = DBUtil.getConnection();
+              PreparedStatement pstt = conn.prepareStatement(sql);
+            ){
             pstt.setString(1,username);
             pstt.setString(2,password);
             ResultSet rs = pstt.executeQuery();
             while (rs.next()){
+                user = new User();
                 user.setUserId(rs.getInt("uid"));
                 user.setUsername(rs.getString("username"));
                 return user;
