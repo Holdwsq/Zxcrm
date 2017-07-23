@@ -21,7 +21,7 @@ public class UserDaoImpl implements IUserDao{
     public User getByLogin(String username, String password) {
         User user = null;
 
-        String sql = "select * from user where username = ? and password =?";
+        String sql = "select * from user where user_name = ? and password =?";
         try ( Connection conn = DBUtil.getConnection();
               PreparedStatement pstt = conn.prepareStatement(sql);
             ){
@@ -31,7 +31,7 @@ public class UserDaoImpl implements IUserDao{
             while (rs.next()){
                 user = new User();
                 user.setUserId(rs.getInt("uid"));
-                user.setUsername(rs.getString("username"));
+                user.setUsername(rs.getString("user_name"));
                 return user;
             }
         } catch (SQLException e) {

@@ -6,18 +6,34 @@
   <welcome-file-list>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-    <servlet>
-        <servlet-name>login</servlet-name>
-        <servlet-class>com.wsq.crm.servlet.user.LoginServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>login</servlet-name>
-        <url-pattern>/user/login</url-pattern>
-    </servlet-mapping>
+    <!-- 配置c标签的uri（统一资源标识符 与 url 统一资源定位符） -->
+
     <jsp-config>
         <taglib>
             <taglib-uri>http://java.sun.com/jsp/jstl/core</taglib-uri>
             <taglib-location>/WEB-INF/jstl/c.tld</taglib-location>
         </taglib>
     </jsp-config>
+    <!-- userfilter用来进行身份验证 帮助我们过滤掉那些我们必须在登陆的条件下才能进行操作的请求 -->
+    <filter>
+        <filter-name>userFilter</filter-name>
+        <filter-class>com.wsq.crm.filter.UserFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>userFilter</filter-name>
+        <url-pattern>/admin.jsp</url-pattern>
+        <url-pattern>/department/*</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>setCharaterEncodingFilter</filter-name>
+        <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>setCharaterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>

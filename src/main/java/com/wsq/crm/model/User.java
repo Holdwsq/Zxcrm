@@ -11,7 +11,7 @@ public class User implements Serializable{
     * 保存在Session中 或 其他的位置时更加的稳定
     * */
     private static final long serialVersionUID = 1L;
-    private long userId;
+    private int userId;
     private String username;
     private String password;
 
@@ -27,11 +27,11 @@ public class User implements Serializable{
                 "}";
     }
 
-    public long getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(long userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 

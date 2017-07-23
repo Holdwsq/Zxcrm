@@ -147,7 +147,7 @@
                         </a>
                     </li>
                     <li>
-                        <a target="pageBox" href="#">
+                        <a target="pageBox" href="<c:url value="/department/list"/> ">
                             <i class="fa fa-circle-thin"></i>&nbsp;&nbsp;部门管理
                         </a>
                     </li>
@@ -172,7 +172,6 @@
             </div>
         </div>
     </div>
-    <input type="button" onclick="">
 <script src="<c:url value="/lib/jquery/jquery.min.js"/>"></script>
 <script src="<c:url value="/js/admin.js"/> "></script>
 </body>

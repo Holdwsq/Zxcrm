@@ -4,16 +4,17 @@ package com.wsq.crm.model;
  * Created by admin on 2017/7/21.
  */
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
  *部门实体类。属性的命名严格的采用驼峰方式的形式就行命名
  */
-public class Department {
+public class Department implements Serializable{
     private int departmentId;
     private String departmentName;
     private String departmentDesc;
-    private boolean status;
+    private byte status;//将状态设置为byte的类型
     private String remark;
     private int creater;
     private Timestamp createTime;
@@ -87,11 +88,11 @@ public class Department {
         this.departmentDesc = departmentDesc;
     }
 
-    public boolean isStatus() {
+    public byte isStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(byte status) {
         this.status = status;
     }
 

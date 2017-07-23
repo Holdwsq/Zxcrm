@@ -33,5 +33,15 @@
             </div>
         </form>
     </div>
+    <script>
+        //在script标签中可以写js代码
+        //页面加载时立即执行，没有java中的main方法
+        if(window.top != window){
+            //强制顶层窗口刷新
+            //window.top.locationi.reload();
+            //让顶层窗口加载登录页
+            window.top.location.href = location.href;
+        }
+    </script>
 </body>
 </html>
