@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 /**
  * Created by admin on 2017/7/24.
@@ -60,7 +61,7 @@ public class RoleDaoImpl implements IRoleDao{
             pstt.setString(2,role.getRoleDesc());
             pstt.setInt(3,role.getUpdater());
             pstt.setTimestamp(4,role.getUpdateTime());
-
+            pstt.setInt(5,role.getRoleId());
             return pstt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -70,7 +71,7 @@ public class RoleDaoImpl implements IRoleDao{
 
     @Override
     public Role get(int roleId) {
-        String sql = "select * form role where role_id = ?";
+        String sql = "select * from role where role_id = ?";
         try(Connection conn = DBUtil.getConnection();
             PreparedStatement pstt = conn.prepareStatement(sql)){
             pstt.setInt(1,roleId);

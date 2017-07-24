@@ -13,6 +13,8 @@ public interface IUserDao {
      * @return 用户对象
      */
     User getByLogin(String username,String password);
+
+    int add(User user);
 }
 
 

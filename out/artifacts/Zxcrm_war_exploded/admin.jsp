@@ -32,7 +32,7 @@
         </div>
         <div class="user">
             <a href="#">${sessionScope[SessionKey.USERNAME]}</a>
-            <a href="#">退出</a>
+            <a href="<c:url value = "/user/logout"/>">退出</a>
         </div>
     </div>
     <div class="main">
@@ -152,7 +152,7 @@
                         </a>
                     </li>
                     <li>
-                        <a target="pageBox" href="#">
+                        <a target="pageBox" href="<c:url value = "/role/list"/>">
                             <i class="fa fa-circle-thin"></i>&nbsp;&nbsp;角色管理
                         </a>
                     </li>

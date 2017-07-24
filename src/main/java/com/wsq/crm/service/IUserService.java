@@ -2,6 +2,8 @@ package com.wsq.crm.service;
 
 import com.wsq.crm.model.User;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * Created by admin on 2017/7/20.
  */
@@ -13,4 +15,10 @@ public interface IUserService {
      * @return 用户对象
      */
     User getByLogin(String name,String password);
+
+    /**
+     * 退出登录
+     * @param request
+     */
+    void logout(HttpServletRequest request);
 }
