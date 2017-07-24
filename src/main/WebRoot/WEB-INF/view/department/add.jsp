@@ -19,13 +19,11 @@
     <link rel="stylesheet" href="<c:url value="/css/main.css"/>">
     <script src="<c:url value="/lib/jquery/jquery.js"/> "></script>
     <script>
+        //这里将添加和修改放在同一界面中，若有request中有Id-parameter，则进行修改，反之进行添加
         function submitForm() {
-            alert(${empty param.id});
             if(${empty param.id}){
-                alert(1);
                 $("#form1").attr("action","<c:url value="/department/add"/>");
             }else {
-                alert(2);
                 $("#form1").attr("action","<c:url value="/department/update"/>");
             }
             $("#form1").attr("method","post").submit();

@@ -2,7 +2,6 @@
   <library name="Maven: javax.servlet.jsp:javax.servlet.jsp-api:2.3.1">
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/jsp/javax.servlet.jsp-api/2.3.1/javax.servlet.jsp-api-2.3.1.jar!/" />
-      <root url="file://F:/java/apache-tomcat-8.0.37/lib" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/jsp/javax.servlet.jsp-api/2.3.1/javax.servlet.jsp-api-2.3.1-javadoc.jar!/" />
@@ -10,6 +9,5 @@
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/jsp/javax.servlet.jsp-api/2.3.1/javax.servlet.jsp-api-2.3.1-sources.jar!/" />
     </SOURCES>
-    <jarDirectory url="file://F:/java/apache-tomcat-8.0.37/lib" recursive="false" />
   </library>
 </component>

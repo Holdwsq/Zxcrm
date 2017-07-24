@@ -41,7 +41,10 @@ public class DepartmentDaoImpl implements IDepartmentDao{
 
     @Override
     public int removeDepartment(int departmentId) {
-        String sql = "delete from department where department_id = ?";
+        //物理删除，删除之后数据彻底消失
+        //String sql = "delete from department where department_id = ?";
+        //逻辑上删除
+        String sql = "update department set status = -2 where department_id = ?";
 
         try ( Connection conn = DBUtil.getConnection();
               PreparedStatement pstt = conn.prepareStatement(sql)){
