@@ -33,11 +33,11 @@
         </div>
         <table class="list">
             <tr>
-               <td>序号</td>
-               <td>角色名</td>
-               <td>角色描述</td>
-               <td>更新时间</td>
-               <td>操作</td>
+               <th>序号</th>
+               <th>角色名</th>
+               <th>角色描述</th>
+               <th>更新时间</th>
+               <th>操作</th>
             </tr>
             <c:forEach items="${requestScope.roleList}" var="r">
                 <tr>

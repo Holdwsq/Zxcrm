@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
  */
 @WebServlet("/role/add")
 public class AddServlet extends HttpServlet{
-    private static final long serialVersinUID = 1L;
+    private static final long serialVersionUID = 1L;
     private IRoleService roleService = new RoleServiceImpl();
 
     /**
