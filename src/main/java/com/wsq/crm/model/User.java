@@ -19,7 +19,7 @@ public class User implements Serializable{
     private boolean system;
     private int departmentId;
     private int roleId;
-    private boolean sex;
+    private boolean sex; //true代表男的 false 代表女的
     private String mobile;
     private String address;
     private Timestamp birthdate;

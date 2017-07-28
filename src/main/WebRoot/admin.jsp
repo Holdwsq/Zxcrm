@@ -157,7 +157,7 @@
                         </a>
                     </li>
                     <li>
-                        <a target="pageBox" href="#">
+                        <a target="pageBox" href="<c:url value="/user/list"/>">
                             <i class="fa fa-circle-thin"></i>&nbsp;&nbsp;用户管理
                         </a>
                     </li>

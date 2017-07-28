@@ -24,7 +24,41 @@ public interface IUserService {
      */
     void logout(HttpServletRequest request);
 
+    /**
+     * 返回用户列表
+     * @param pager
+     * @param keyword
+     * @param searchFiled
+     * @return
+     */
     List<User> list(Pager pager, String keyword, String searchFiled);
 
+    /**
+     * 返回符合条件的用户总数
+     * @param keyword
+     * @param searchFiled
+     * @return 用户数量
+     */
     int total(String keyword, String searchFiled);
+
+    /**
+     * 删除用户 根据参数的用户Id
+     * @param userId
+     * @return
+     */
+    int remove(int userId);
+
+    /**
+     * 通过用户的id 查找对应的用户
+     * @param userId
+     * @return
+     */
+    User get(int userId);
+
+    /**
+     * 增加用户
+     * @param user
+     * @return
+     */
+    int add(User user);
 }

@@ -35,7 +35,7 @@ public class UserDaoImpl implements IUserDao{
             ResultSet rs = pstt.executeQuery();
             while (rs.next()){
                 user = new User();
-                user.setUserId(rs.getInt("uid"));
+                user.setUserId(rs.getInt("user_id"));
                 user.setUsername(rs.getString("user_name"));
                 return user;
             }
@@ -54,6 +54,45 @@ public class UserDaoImpl implements IUserDao{
      */
     @Override
     public int add(User user) {
+        String sql = "INSERT INTO `user` (`create_time`, `user_name`, `password`, `admin`, `system`,"
+                + " `department_id`, `role_id`, `sex`, `mobile`, `address`, "
+                + "`birthdate`, `tel`, `id_num`, `email`, `qq`, "
+                + "`hobby`, `education`, `card_num`, `nation`, `marry`, " + "`remark`, `creater` "
+                + ") VALUES (?, ?, ?, ?, ?, " + "?, ?, ?, ?, ?, " + "?, ?, ?, ?, ?, " + "?, ?, ?, ?, ?, " + "?, ?)";
+        try (Connection conn = DBUtil.getConnection(); PreparedStatement stat = conn.prepareStatement(sql)) {
+            stat.setTimestamp(1, user.getCreateTime());
+            stat.setString(2, user.getUsername());
+            stat.setString(3, user.getPassword());
+            stat.setBoolean(4, user.isAdmin());
+            stat.setBoolean(5, user.isSystem());
+
+            stat.setInt(6, user.getDepartmentId());
+            stat.setInt(7, user.getRoleId());
+            stat.setBoolean(8, user.isSex());
+            stat.setString(9, user.getMobile());
+            stat.setString(10, user.getAddress());
+
+            stat.setTimestamp(11, user.getBirthdate());
+            stat.setString(12, user.getTel());
+            stat.setString(13, user.getIdNum());
+            stat.setString(14, user.getEmail());
+            stat.setString(15, user.getQq());
+
+            stat.setString(16, user.getHobby());
+            stat.setByte(17, user.getEducation());
+            stat.setString(18, user.getCardNum());
+            stat.setString(19, user.getNation());
+            stat.setByte(20, user.getMarry());
+
+            stat.setString(21, user.getRemark());
+            stat.setInt(22, user.getCreater());
+
+            return stat.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return 0;
     }
 
@@ -65,6 +104,16 @@ public class UserDaoImpl implements IUserDao{
      */
     @Override
     public int remove(int userId) {
+        String sql = "update user set status = -2 where user_id = ?";
+        try (Connection conn = DBUtil.getConnection();
+            PreparedStatement pstt = conn.prepareStatement(sql)){
+            pstt.setInt(1,userId);
+
+            return pstt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return 0;
     }
 
@@ -142,9 +191,9 @@ public class UserDaoImpl implements IUserDao{
                 user.setCreateTime(rs.getTimestamp("create_time"));
                 user.setUpdater(rs.getInt("updater"));
                 user.setUpdateTime(rs.getTimestamp("update_time"));
-
                 list.add(user);
             }
+            return  list;
         } catch (SQLException e) {
             e.printStackTrace();
         }

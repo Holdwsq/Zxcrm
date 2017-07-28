@@ -30,7 +30,7 @@ public class Pager {
         pageCount = total % pageSize > 0 ? total/pageSize + 1:total/pageSize;
         //计算 start、end
         start = end = pageNo;
-        while (end - start + 1 < showPageNos && (start < 1 || end < pageCount)){
+        while (end - start + 1 < showPageNos && (start > 1 || end < pageCount)){
             if (start > 1 ){
                 start--;
             }

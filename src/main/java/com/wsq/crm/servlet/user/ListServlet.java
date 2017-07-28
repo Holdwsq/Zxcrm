@@ -42,7 +42,6 @@ public class ListServlet extends HttpServlet{
         String keyword = req.getParameter("keyword");
         String searchField = req.getParameter("searchField");
 
-
         showPage(pageNo,keyword,searchField,req,resp);
     }
     private void showPage(int pageNo,String keyword,String searchField,HttpServletRequest req,HttpServletResponse resp)
@@ -55,7 +54,6 @@ public class ListServlet extends HttpServlet{
         req.setAttribute("list",userList);
         req.setAttribute("keyword",keyword);
         req.setAttribute("searchField",searchField);
-
         req.getRequestDispatcher("/WEB-INF/view/user/list.jsp").forward(req,resp);
     }
 }

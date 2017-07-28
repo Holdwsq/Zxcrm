@@ -16,6 +16,7 @@ import java.util.List;
  */
 public class UserServiceImpl implements IUserService{
     private IUserDao userDao = new UserDaoImpl();
+
     @Override
     public User getByLogin(String name, String password) {
         return userDao.getByLogin(name,password);
@@ -35,5 +36,38 @@ public class UserServiceImpl implements IUserService{
     @Override
     public List<User> list(Pager pager, String keyword, String searchFiled) {
         return userDao.list(pager,keyword,searchFiled);
+    }
+
+    /**
+     * 删除用户 根据参数的用户Id
+     *
+     * @param userId
+     * @return
+     */
+    @Override
+    public int remove(int userId) {
+        return userDao.remove(userId);
+    }
+
+    /**
+     * 通过用户的id 查找对应的用户
+     *
+     * @param userId
+     * @return
+     */
+    @Override
+    public User get(int userId) {
+        return userDao.get(userId);
+    }
+
+    /**
+     * 增加用户
+     *
+     * @param user
+     * @return
+     */
+    @Override
+    public int add(User user) {
+        return userDao.add(user);
     }
 }
